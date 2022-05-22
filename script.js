@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-const seats = document.querySelectorAll('.row.seat:not(.occupied)');
+const seats = document.querySelectorAll('.row .seat:not(.occupied)');
 const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
@@ -9,13 +9,11 @@ let ticketPrice = +movieSelect.value;
 // Update Total and count
 function updateSelectedCount()
 {
-    const selectedSeats = document.querySelectorAll('.container .row .seat.selected');
+    const selectedSeats = document.querySelectorAll('.row .seat.selected');
 
-    // copy selected seats into arr
-    // Map through array
-    // return array
+    const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
 
-    const seatsIndex = [...selectedSeats].map()
+    localStorage.setItem('selectedSeats',JSON.stringify(seatsIndex));
 
     const selectedSeatsCount = selectedSeats.length;
 
